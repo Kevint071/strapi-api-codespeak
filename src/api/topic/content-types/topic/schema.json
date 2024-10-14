@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "topics",
+  "info": {
+    "singularName": "topic",
+    "pluralName": "topics",
+    "displayName": "Topic",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 27,
+      "unique": false,
+      "minLength": 2
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "python",
+        "javascript"
+      ],
+      "required": true
+    },
+    "subtopics": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subtopic.subtopic",
+      "mappedBy": "topic"
+    }
+  }
+}

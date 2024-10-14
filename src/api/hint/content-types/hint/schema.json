@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hints",
+  "info": {
+    "singularName": "hint",
+    "pluralName": "hints",
+    "displayName": "Hint",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hint": {
+      "type": "text",
+      "unique": true,
+      "maxLength": 300,
+      "minLength": 5,
+      "required": true
+    },
+    "challenge": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::challenge.challenge",
+      "inversedBy": "hints"
+    }
+  }
+}

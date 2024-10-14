@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subtopics",
+  "info": {
+    "singularName": "subtopic",
+    "pluralName": "subtopics",
+    "displayName": "Subtopic",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 27,
+      "minLength": 3
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "content": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::content.content",
+      "inversedBy": "subtopic"
+    },
+    "topic": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::topic.topic",
+      "inversedBy": "subtopics"
+    }
+  }
+}

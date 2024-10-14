@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "challenges",
+  "info": {
+    "singularName": "challenge",
+    "pluralName": "challenges",
+    "displayName": "Challenge",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 10,
+      "maxLength": 40
+    },
+    "difficulty": {
+      "type": "enumeration",
+      "enum": [
+        "Fácil",
+        "Medio",
+        "Difícil"
+      ],
+      "required": true
+    },
+    "rating": {
+      "type": "integer",
+      "required": true,
+      "max": 9,
+      "min": 1
+    },
+    "category_challenges": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category-challenge.category-challenge",
+      "mappedBy": "challenges"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "exampleInput": {
+      "type": "text",
+      "maxLength": 300,
+      "required": true
+    },
+    "exampleOutput": {
+      "type": "text",
+      "maxLength": 400,
+      "required": true
+    },
+    "hints": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hint.hint",
+      "mappedBy": "challenge"
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 1000,
+      "minLength": 30,
+      "required": true
+    }
+  }
+}

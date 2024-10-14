@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_challenges",
+  "info": {
+    "singularName": "category-challenge",
+    "pluralName": "category-challenges",
+    "displayName": "Category Challenge"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 15,
+      "minLength": 2,
+      "required": true,
+      "unique": true
+    },
+    "challenges": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::challenge.challenge",
+      "inversedBy": "category_challenges"
+    }
+  }
+}
