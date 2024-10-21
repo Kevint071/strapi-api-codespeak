@@ -492,6 +492,7 @@ export interface ApiCategoryChallengeCategoryChallenge
     singularName: 'category-challenge';
     pluralName: 'category-challenges';
     displayName: 'Category Challenge';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -502,7 +503,7 @@ export interface ApiCategoryChallengeCategoryChallenge
       Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 2;
-        maxLength: 15;
+        maxLength: 25;
       }>;
     challenges: Schema.Attribute.Relation<
       'manyToMany',
