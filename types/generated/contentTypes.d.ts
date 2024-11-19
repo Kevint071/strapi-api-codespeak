@@ -690,7 +690,6 @@ export interface ApiSubtopicSubtopic extends Struct.CollectionTypeSchema {
     content: Schema.Attribute.Relation<'oneToOne', 'api::content.content'>;
     topic: Schema.Attribute.Relation<'manyToOne', 'api::topic.topic'>;
     order: Schema.Attribute.Integer &
-      Schema.Attribute.Unique &
       Schema.Attribute.SetMinMax<
         {
           min: 0;
