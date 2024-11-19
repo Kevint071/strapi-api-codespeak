@@ -689,6 +689,14 @@ export interface ApiSubtopicSubtopic extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     content: Schema.Attribute.Relation<'oneToOne', 'api::content.content'>;
     topic: Schema.Attribute.Relation<'manyToOne', 'api::topic.topic'>;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
